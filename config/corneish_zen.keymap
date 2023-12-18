@@ -15,6 +15,19 @@
     flavor = "tap-preferred";
 };
 
+&hm {
+    tapping-term-ms = <150>;
+    quick-tap-ms = <0>;
+    flavor = "tap-preferred";
+};
+
+&hms {
+    tapping-term-ms = <50>;
+    quick-tap-ms = <10>;
+    flavor = "hold-preferred";
+};
+
+
 / {
     chosen {
         zmk,matrix_transform = &default_transform;
@@ -37,10 +50,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp W           &kp E           &kp R             &kp T                   &kp Y      &kp U        &kp I                &kp O             &kp P          &kp BSPC
-&kp TAB     &kp A  &kp S           &mt RCTRL D     &mt LEFT_SHIFT F  &kp G                   &kp H      &mt RSHFT J  &mt RCTRL K          &kp L             &kp SEMICOLON  &kp SQT
-&kp LCTRL   &kp Z  &mt LEFT_GUI X  &mt LEFT_ALT C  &kp V             &kp B                   &kp N      &kp M        &mt RIGHT_ALT COMMA  &mt LEFT_GUI DOT  &kp SLASH      &kp RIGHT_SHIFT
-                                   &kp BACKSPACE   &lt 1 MINUS       &mt LEFT_SHIFT ENTER    &kp SPACE  &lt 2 TAB    &mt RALT DEL
+            &kp ESCAPE  &kp Q  &kp W           &kp E           &kp R             &kp T                   &kp Y      &kp U        &kp I                &kp O             &kp P          &kp BSPC
+            &kp TAB     &kp A  &kp S           &hm RCTRL D     &hms LEFT_SHIFT F &kp G                   &kp H      &hms RSHFT J &hm RCTRL K          &kp L             &kp SEMICOLON  &kp SQT
+            &kp LCTRL   &kp Z  &hm LEFT_GUI X  &hm LEFT_ALT C  &kp V             &kp B                   &kp N      &kp M        &hm RIGHT_ALT COMMA  &hm LEFT_GUI DOT  &kp SLASH      &kp RIGHT_SHIFT
+                                   &kp BACKSPACE   &lt 1 MINUS       &hms LEFT_SHIFT ENTER    &kp SPACE  &lt 2 TAB    &mt RALT DEL
             >;
         };
 
@@ -54,9 +67,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans         &kp CAPSLOCK    &kp HOME        &kp UP_ARROW    &kp PAGE_UP      &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp N7        &kp N8        &kp N9        &kp PLUS      &kp LC(BACKSPACE)
-&kp LG(LS(S))  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS     &kp EQUAL
-&trans         &kp LS(F10)     &kp END         &kp EQUAL       &kp PAGE_DOWN    &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK  &trans
+            &trans         &kp CAPSLOCK    &kp HOME        &kp UP_ARROW    &kp PAGE_UP      &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp N7        &kp N8        &kp N9        &kp PLUS      &kp LC(BACKSPACE)
+            &kp LG(LS(S))  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS     &kp EQUAL
+            &trans         &kp LS(F10)     &kp END         &kp EQUAL       &kp PAGE_DOWN    &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK  &trans
                                                &kp DELETE      &trans           &trans                  &trans                 &mo 3         &kp NUMBER_0
             >;
         };
@@ -71,18 +84,18 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET      &kp RA(Y)         &kp AMPERSAND  &kp RA(P)  &kp RA(NUMBER_3)  &trans
-&trans  &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp MINUS    &kp BACKSLASH  &kp RA(NUMBER_5)  &kp GRAVE      &kp TILDE  &none             &none
-&trans  &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &kp UNDER    &kp PIPE       &none             &none          &none      &none             &trans
+            &trans  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET      &kp RA(Y)         &kp AMPERSAND  &kp RA(P)  &kp RA(NUMBER_3)  &trans
+            &trans  &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp MINUS    &kp BACKSLASH  &kp RA(NUMBER_5)  &kp GRAVE      &kp TILDE  &none             &none
+            &trans  &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &kp UNDER    &kp PIPE       &none             &none          &none      &none             &trans
                                  &trans         &mo 3          &trans       &trans         &trans            &trans
             >;
         };
 
         layer_3 {
             bindings = <
-&kp LC(LS(ESCAPE))  &trans        &trans        &trans        &trans        &kp LC(LS(T))    &kp C_MUTE         &kp F7  &kp F8  &kp F9  &kp F12  &trans
-&bt BT_CLR          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &kp C_VOL_UP       &kp F4  &kp F5  &kp F6  &kp F11  &trans
-&trans              &trans        &trans        &trans        &trans        &kp LS(LC(B))    &kp C_VOLUME_DOWN  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+            &kp LC(LS(ESCAPE))  &trans        &trans        &trans        &trans        &kp LC(LS(T))    &kp C_MUTE         &kp F7  &kp F8  &kp F9  &kp F12  &trans
+            &bt BT_CLR          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &kp C_VOL_UP       &kp F4  &kp F5  &kp F6  &kp F11  &trans
+            &trans              &trans        &trans        &trans        &trans        &kp LS(LC(B))    &kp C_VOLUME_DOWN  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                                                 &trans        &trans        &trans           &trans             &trans  &trans
             >;
         };
