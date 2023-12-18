@@ -15,7 +15,7 @@
     flavor = "tap-preferred";
 };
 
-&hm 
+
 / {
     behaviors {
         hm: homerow_mods {
@@ -29,10 +29,9 @@
     };
 };
 
-&hms 
 / {
     behaviors {
-        hm: homerow_mods {
+        hms: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <50>;
