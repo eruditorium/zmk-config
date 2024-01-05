@@ -15,49 +15,47 @@
     flavor = "tap-preferred";
 };
 
+// For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
+// Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
+&lwr {
+        compatible = "zmk,behavior-tap-dance";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&mo 1>, <&to 1>;
+};
+
+&rse {
+    compatible = "zmk,behavior-tap-dance";
+    #binding-cells = <0>;
+    tapping-term-ms = <200>;
+    bindings = <&mo 2>, <&to 2>;
+};
+
+&hm {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <170>;
+    flavor = "tap-preferred";
+    quick-tap-ms = <200>;
+    require-prior-idle-ms = <125>;
+    bindings = <&kp>, <&kp>;
+};
+
+&shm {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <120>;
+    flavor = "tap-preferred";
+    quick-tap-ms = <200>;
+    require-prior-idle-ms = <125>;
+    bindings = <&kp>, <&kp>;
+};
+
 / {
     chosen {
         zmk,matrix_transform = &default_transform;
     };
 };
-
-        // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
-        // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-        &lwr {
-             compatible = "zmk,behavior-tap-dance";
-             #binding-cells = <0>;
-             tapping-term-ms = <200>;
-             bindings = <&mo 1>, <&to 1>;
-        };
-      
-        &rse {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 2>, <&to 2>;
-        };
-
-        &hm {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "tap-preferred";
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        &shm {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <120>;
-            flavor = "tap-preferred";
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
-        };
-
-
 
 / {
     keymap {
