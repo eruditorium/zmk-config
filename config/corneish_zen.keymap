@@ -73,7 +73,7 @@ behaviors {
             &kp PLUS    &kp Q       &kp W       &kp E       &kp R         &kp T                   &kp Y      &kp U         &kp I       &kp O              &kp P               &kp PIPE
             &kp ESCAPE  &kp A       &kp S       &hm RCTRL D &shm LSHIFT F &kp G                   &kp H      &shm RSHFT J  &hm RCTRL K &kp L              &kp SEMICOLON       &kp SQT
             &kp MINUS   &hm LGUI Z  &hm LALT X  &kp C       &kp V         &kp B                   &kp N      &kp M         &kp COMMA   &hm RIGHT_ALT DOT  &hm RIGHT_GUI SLASH &kp EQUAL
-                                                &kp BKSP    &lwr MINUS    &shm LSHIFT ENTER       &kp SPACE  &rs TAB       &hm RALT DEL
+                                                &kp BKSP    &lwr MINUS    &shm LSHIFT ENTER       &kp SPACE  &rse TAB      &hm RALT DEL
             >;
         };
 
