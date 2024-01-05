@@ -9,55 +9,58 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-&mt {
-    tapping-term-ms = <175>;
-    quick-tap-ms = <50>;
-    flavor = "tap-preferred";
-};
-
-// For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
-// Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-&lwr {
-        compatible = "zmk,behavior-tap-dance";
-        #binding-cells = <0>;
-        tapping-term-ms = <200>;
-        bindings = <&mo 1>, <&to 1>;
-};
-
-&rse {
-    compatible = "zmk,behavior-tap-dance";
-    #binding-cells = <0>;
-    tapping-term-ms = <200>;
-    bindings = <&mo 2>, <&to 2>;
-};
-
-&hm {
-    compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
-    tapping-term-ms = <170>;
-    flavor = "tap-preferred";
-    quick-tap-ms = <200>;
-    require-prior-idle-ms = <125>;
-    bindings = <&kp>, <&kp>;
-};
-
-&shm {
-    compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
-    tapping-term-ms = <120>;
-    flavor = "tap-preferred";
-    quick-tap-ms = <200>;
-    require-prior-idle-ms = <125>;
-    bindings = <&kp>, <&kp>;
-};
-
 / {
-    chosen {
-        zmk,matrix_transform = &default_transform;
+    behaviors {
+        // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
+        // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
+
+        lwr: tap_dance_1 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 1>, <&to 1>;
+        };
+
+        rse: tap_dance_2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 2>, <&to 2>;
+        };
+
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        shm: shift_hr_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <120>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        shift_hrm: shift_hrm {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_HRM";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <120>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+            flavor = "balanced";
+        };
     };
-};
 
-/ {
     keymap {
         compatible = "zmk,keymap";
 
@@ -71,10 +74,10 @@
             //                    |BKSP |LWR* |ENT* |   | SPC | RSE* |DEL* |
 
             bindings = <
-            &kp PLUS    &kp Q       &kp W       &kp E       &kp R         &kp T                   &kp Y      &kp U         &kp I       &kp O              &kp P               &kp PIPE
-            &kp ESCAPE  &kp A       &kp S       &hm RCTRL D &shm LSHIFT F &kp G                   &kp H      &shm RSHFT J  &hm RCTRL K &kp L              &kp SEMICOLON       &kp SQT
-            &kp MINUS   &hm LGUI Z  &hm LALT X  &kp C       &kp V         &kp B                   &kp N      &kp M         &kp COMMA   &hm RIGHT_ALT DOT  &hm RIGHT_GUI SLASH &kp EQUAL
-                                                &kp BSPC    &mo 1 MINUS    &shm LSHIFT ENTER       &kp SPACE  &rse TAB      &hm RALT DEL
+&kp PLUS    &kp Q       &kp W       &kp E        &kp R          &kp T                &kp Y      &kp U         &kp I         &kp O              &kp P                &kp PIPE
+&kp ESCAPE  &kp A       &kp S       &hm RCTRL D  &shm LSHIFT F  &kp G                &kp H      &shm RSHFT J  &hm RCTRL K   &kp L              &kp SEMICOLON        &kp SQT
+&kp MINUS   &hm LGUI Z  &hm LALT X  &kp C        &kp V          &kp B                &kp N      &kp M         &kp COMMA     &hm RIGHT_ALT DOT  &hm RIGHT_GUI SLASH  &kp EQUAL
+                                    &kp BSPC     &lwr           &shm LSHIFT ENTER    &kp SPACE  &rse TAB      &hm RALT DEL
             >;
         };
 
@@ -88,9 +91,9 @@
             //                      | DEL |LWR* | ENT*|   | ENT |     | ALT |
 
             bindings = <
-            &trans         &kp CAPSLOCK    &kp HOME        &kp UP_ARROW    &kp PAGE_UP      &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp N7        &kp N8        &kp N9        &kp PLUS      &kp LC(BACKSPACE)
-            &kp LG(LS(S))  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS     &kp EQUAL
-            &trans         &kp LS(F10)     &kp END         &kp EQUAL       &kp PAGE_DOWN    &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK  &trans
+&trans         &kp CAPSLOCK    &kp HOME        &kp UP_ARROW    &kp PAGE_UP      &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp N7        &kp N8        &kp N9        &kp PLUS      &kp LC(BACKSPACE)
+&kp LG(LS(S))  &kp KP_NUMLOCK  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp LEFT_BRACKET        &kp RIGHT_BRACKET      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS     &kp EQUAL
+&trans         &kp LS(F10)     &kp END         &kp EQUAL       &kp PAGE_DOWN    &kp LEFT_PARENTHESIS    &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp ASTERISK  &trans
                                                &kp DELETE      &trans           &trans                  &trans                 &mo 3         &kp NUMBER_0
             >;
         };
@@ -105,19 +108,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-            &trans  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET      &kp RA(Y)         &kp AMPERSAND  &kp RA(P)  &kp RA(NUMBER_3)  &trans
-            &trans  &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp MINUS    &kp BACKSLASH  &kp RA(NUMBER_5)  &kp GRAVE      &kp TILDE  &none             &none
-            &trans  &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &kp UNDER    &kp PIPE       &none             &none          &none      &none             &trans
-                                 &trans      &mo 3          &trans         &trans       &trans         &trans
+&trans  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET      &kp RA(Y)         &kp AMPERSAND  &kp RA(P)  &kp RA(NUMBER_3)  &trans
+&trans  &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp MINUS    &kp BACKSLASH  &kp RA(NUMBER_5)  &kp GRAVE      &kp TILDE  &none             &none
+&trans  &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &kp UNDER    &kp PIPE       &none             &none          &none      &none             &trans
+                                 &trans         &mo 3          &trans       &trans         &trans            &trans
             >;
         };
 
         layer_3 {
             bindings = <
-            &kp LC(LS(ESCAPE))  &trans        &trans        &trans        &trans        &kp LC(LS(T))    &kp C_MUTE         &kp F7  &kp F8  &kp F9  &kp F12  &trans
-            &bt BT_CLR          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &kp C_VOL_UP       &kp F4  &kp F5  &kp F6  &kp F11  &trans
-            &trans              &trans        &trans        &trans        &trans        &kp LS(LC(B))    &kp C_VOLUME_DOWN  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                              &trans        &trans        &trans        &trans           &trans             &trans
+&kp LC(LS(ESCAPE))  &trans        &trans        &trans        &trans        &kp LC(LS(T))    &kp C_MUTE         &kp F7  &kp F8  &kp F9  &kp F12  &trans
+&bt BT_CLR          &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4     &kp C_VOL_UP       &kp F4  &kp F5  &kp F6  &kp F11  &trans
+&trans              &trans        &trans        &trans        &trans        &kp LS(LC(B))    &kp C_VOLUME_DOWN  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+                                                &trans        &trans        &trans           &trans             &trans  &trans
             >;
         };
     };
