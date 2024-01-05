@@ -9,13 +9,48 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-&mt {
-    tapping-term-ms = <175>;
-    quick-tap-ms = <50>;
-    flavor = "tap-preferred";
-};
+
 
 / {
+behaviors {
+    
+        // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
+        // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
+        lower: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 1>, <&to 1>;
+        };
+
+        raise: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LAYER_TAP_DANCE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mo 2>, <&to 2>;
+        };
+
+        mt: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+
+        shm: shift_hr_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <120>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     chosen {
         zmk,matrix_transform = &default_transform;
 
@@ -31,16 +66,16 @@
             display-name = "QWERTY";
 
             // --------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+            // |  ESC |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+            // |  TAB |  A  |  S  |  D* |  F* |  G  |   |  H  |  J*  |  K* |  L  |  ;  |  '   |
+            // |LCTRL |  Z  |  X* |  C* |  V  |  B  |   |  N  |  M   |  ,* |  .* |  /  |SHIFT |
+            //                    |BKSP |LWR* |ENT* |   | SPC | RSE* |DEL* |
 
             bindings = <
-            &kp ESCAPE  &kp Q  &kp W           &kp E           &kp R             &kp T                   &kp Y      &kp U        &kp I                &kp O             &kp P          &kp BSPC
-            &kp TAB     &kp A  &kp S           &mt RCTRL D     &mt LEFT_SHIFT F  &kp G                   &kp H      &mt RSHFT J  &mt RCTRL K          &kp L             &kp SEMICOLON  &kp SQT
-            &kp LCTRL   &kp Z  &mt LEFT_GUI X  &mt LEFT_ALT C  &kp V             &kp B                   &kp N      &kp M        &mt RIGHT_ALT COMMA  &mt LEFT_GUI DOT  &kp SLASH      &kp RIGHT_SHIFT
-                                   &kp BACKSPACE   &lt 1 MINUS       &mt LEFT_SHIFT ENTER    &kp SPACE  &lt 2 TAB    &mt RALT DEL
+            &kp ESCAPE  &kp Q  &kp W           &kp E           &kp R              &kp T                   &kp Y      &kp U         &kp I                &kp O             &kp P          &kp BSPC
+            &kp TAB     &kp A  &kp S           &mt RCTRL D     &shm LEFT_SHIFT F  &kp G                   &kp H      &shm RSHFT J  &mt RCTRL K          &kp L             &kp SEMICOLON  &kp SQT
+            &kp LCTRL   &kp Z  &mt LEFT_GUI X  &mt LEFT_ALT C  &kp V              &kp B                   &kp N      &kp M         &mt RIGHT_ALT COMMA  &mt LEFT_GUI DOT  &kp SLASH      &kp RIGHT_SHIFT
+                                   &kp BACKSPACE   &lower MINUS       &mt LEFT_SHIFT ENTER    &kp SPACE    &raise TAB    &mt RALT DEL
             >;
         };
 
@@ -48,10 +83,10 @@
             display-name = "NUMBER";
 
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            // |  ESC | CAPS  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
+            // |      | NMLCK | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
+            // |LCTRL | S+F10 |     |     |     |     |   |     |     |     |     |     |      |
+            //                      | DEL |LWR* | ENT*|   | ENT |     | ALT |
 
             bindings = <
             &trans         &kp CAPSLOCK    &kp HOME        &kp UP_ARROW    &kp PAGE_UP      &kp LEFT_BRACE          &kp RIGHT_BRACE        &kp N7        &kp N8        &kp N9        &kp PLUS      &kp LC(BACKSPACE)
