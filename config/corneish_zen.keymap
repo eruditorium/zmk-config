@@ -21,26 +21,23 @@
     };
 };
 
-/ {
-behaviors {
-    
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
-        lwr: tap_dance_1 {
+        &lwr {
              compatible = "zmk,behavior-tap-dance";
              #binding-cells = <0>;
              tapping-term-ms = <200>;
              bindings = <&mo 1>, <&to 1>;
         };
       
-        rse: tap_dance_2 {
+        &rse {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mo 2>, <&to 2>;
         };
 
-        hm: homerow_mods {
+        &hm {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <170>;
@@ -50,7 +47,7 @@ behaviors {
             bindings = <&kp>, <&kp>;
         };
 
-        shm: shift_hr_mod {
+        &shm {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <120>;
@@ -59,8 +56,6 @@ behaviors {
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
-    };
-};
 
 
 
