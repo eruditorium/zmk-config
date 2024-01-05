@@ -14,38 +14,16 @@
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
 
-        lwr: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 1>, <&to 1>;
-        };
-
-        rse: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 2>, <&to 2>;
-        };
-
-        hm: homerow_mods {
+        shift_hrm: shift_hrm {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "tap-preferred";
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
+            label = "SHIFT_HRM";
             bindings = <&kp>, <&kp>;
-        };
 
-        shm: shift_hr_mod {
-            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <120>;
-            flavor = "tap-preferred";
             quick-tap-ms = <200>;
             require-prior-idle-ms = <125>;
-            bindings = <&kp>, <&kp>;
+            flavor = "balanced";
         };
     };
 
@@ -62,10 +40,10 @@
             //                    |BKSP |LWR* |ENT* |   | SPC | RSE* |DEL* |
 
             bindings = <
-&kp PLUS    &kp Q       &kp W       &kp E        &kp R          &kp T                &kp Y      &kp U         &kp I         &kp O              &kp P                &kp PIPE
-&kp ESCAPE  &kp A       &kp S       &hm RCTRL D  &shm LSHIFT F  &kp G                &kp H      &shm RSHFT J  &hm RCTRL K   &kp L              &kp SEMICOLON        &kp SQT
-&kp MINUS   &hm LGUI Z  &hm LALT X  &kp C        &kp V          &kp B                &kp N      &kp M         &kp COMMA     &hm RIGHT_ALT DOT  &hm RIGHT_GUI SLASH  &kp EQUAL
-                                    &kp BSPC     &lwr           &shm LSHIFT ENTER    &kp SPACE  &rse TAB      &hm RALT DEL
+&kp PLUS    &kp Q  &kp W  &kp E     &kp R  &kp T    &kp Y      &kp U  &kp I      &kp O  &kp P          &kp PIPE
+&kp ESCAPE  &kp A  &kp S  &none     &none  &kp G    &kp H      &none  &none      &kp L  &kp SEMICOLON  &kp SQT
+&kp MINUS   &none  &none  &kp C     &kp V  &kp B    &kp N      &kp M  &kp COMMA  &none  &none          &kp EQUAL
+                          &kp BSPC  &none  &none    &kp SPACE  &none  &none
             >;
         };
 
