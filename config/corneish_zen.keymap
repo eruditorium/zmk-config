@@ -14,20 +14,6 @@
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
 
-        lwr: tap_dance_1 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 1>, <&to 1>;
-        };
-
-        rse: tap_dance_2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo 2>, <&to 2>;
-        };
-
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -77,7 +63,7 @@
 &kp PLUS    &kp Q       &kp W       &kp E        &kp R          &kp T                &kp Y      &kp U         &kp I         &kp O              &kp P                &kp PIPE
 &kp ESCAPE  &kp A       &kp S       &hm RCTRL D  &shm LSHIFT F  &kp G                &kp H      &shm RSHFT J  &hm RCTRL K   &kp L              &kp SEMICOLON        &kp SQT
 &kp MINUS   &hm LGUI Z  &hm LALT X  &kp C        &kp V          &kp B                &kp N      &kp M         &kp COMMA     &hm RIGHT_ALT DOT  &hm RIGHT_GUI SLASH  &kp EQUAL
-                                    &kp BSPC     &lwr           &shm LSHIFT ENTER    &kp SPACE  &rse TAB      &hm RALT DEL
+                                    &kp BSPC     &mo 1 ESC      &shm LSHIFT ENTER    &kp SPACE  &mo 2 TAB      &hm RALT DEL
             >;
         };
 
