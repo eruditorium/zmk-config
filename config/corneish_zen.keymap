@@ -83,7 +83,7 @@
             bindings = <
 &trans  &kp CAPS    &kp HOME  &kp UP    &kp PG_UP   &kp LBRC       &kp RBRC   &kp N7  &kp N8  &kp N9  &kp PLUS      &kp LC(BSPC)
 &trans  &kp LNLCK   &kp LEFT  &kp DOWN  &kp RIGHT   &kp LBKT       &kp RBKT   &kp N4  &kp N5  &kp N6  &kp MINUS     &kp EQUAL
-&trans  &kp LS(F10) &kp END   &kp LC(S) &kp PG_DOWN &kp LPAR       &kp RPAR   &kp N1  &kp N2  &kp N3  &kp ASTERISK  &trans
+&trans  &kp LS(F10) &kp END   &kp LC(S) &kp PG_DWN  &kp LPAR       &kp RPAR   &kp N1  &kp N2  &kp N3  &kp ASTERISK  &trans
                               &trans    &trans      &trans         &kp UNDER  &mo 3   &kp N0
             >;
         };
