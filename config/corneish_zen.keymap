@@ -47,6 +47,60 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        Minus {
+            bindings = <&kp MINUS>;
+            key-positions = <29 17>;
+        };
+
+        Underscore {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <30 18>;
+        };
+
+        LeftBrace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <5 4>;
+        };
+
+        LeftBracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <16 17>;
+        };
+
+        LeftParenthesis {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <28 29>;
+        };
+
+        RightBrace {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <6 7>;
+        };
+
+        RightBracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <18 19>;
+        };
+
+        RightParenthesis {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <30 31>;
+        };
+
+        DoubleQuotes {
+            bindings = <&kp DOUBLE_QUOTES>;
+            key-positions = <16 28>;
+        };
+
+        Quote {
+            bindings = <&kp SINGLE_QUOTE>;
+            key-positions = <19 31>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -82,10 +136,10 @@
             //                                      `--------------------------'  `--------------------------'
 
             bindings = <
-&trans  &kp CAPSLOCK    &kp HOME  &kp UP     &kp PG_UP      &kp LBRC    &kp RBRC   &kp N7  &kp N8  &kp N9  &kp PLUS      &kp LC(BSPC)
-&trans  &kp KP_NUMLOCK  &kp LEFT  &kp DOWN   &kp RIGHT      &kp LBKT    &kp RBKT   &kp N4  &kp N5  &kp N6  &kp MINUS     &kp EQUAL
-&trans  &kp LS(F10)     &kp END   &kp LC(S)  &kp PAGE_DOWN  &kp LPAR    &kp RPAR   &kp N1  &kp N2  &kp N3  &kp ASTERISK  &trans
-                                  &trans     &trans         &kp UNDER   &kp UNDER  &mo 3   &kp N0
+&trans  &kp CAPSLOCK    &kp HOME  &kp UP     &kp PG_UP      &kp LBRC     &kp RBRC   &kp N7  &kp N8  &kp N9  &kp PLUS      &kp LC(BSPC)
+&trans  &kp KP_NUMLOCK  &kp LEFT  &kp DOWN   &kp RIGHT      &kp LBKT     &kp RBKT   &kp N4  &kp N5  &kp N6  &kp MINUS     &kp EQUAL
+&trans  &kp LS(F10)     &kp END   &kp LC(S)  &kp PAGE_DOWN  &kp LPAR     &kp RPAR   &kp N1  &kp N2  &kp N3  &kp ASTERISK  &trans
+                                  &trans     &trans         &kp UNDER    &kp UNDER  &mo 3   &kp N0
             >;
         };
 
