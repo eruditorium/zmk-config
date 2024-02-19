@@ -114,46 +114,6 @@
             bindings = <&kp END>;
             key-positions = <14 26>;
         };
-
-        PgUp {
-            bindings = <&kp PAGE_UP>;
-            key-positions = <8 20>;
-        };
-
-        PgDwn {
-            bindings = <&kp PAGE_DOWN>;
-            key-positions = <20 32>;
-        };
-
-        Left {
-            bindings = <&kp LEFT>;
-            key-positions = <14 15>;
-        };
-
-        Right {
-            bindings = <&kp RIGHT>;
-            key-positions = <15 16>;
-        };
-
-        Left_right {
-            bindings = <&kp LEFT>;
-            key-positions = <19 20>;
-        };
-
-        Right_right {
-            bindings = <&kp RIGHT>;
-            key-positions = <21 20>;
-        };
-
-        Up {
-            bindings = <&kp UP_ARROW>;
-            key-positions = <3 15>;
-        };
-
-        Down {
-            bindings = <&kp DOWN>;
-            key-positions = <15 27>;
-        };
     };
 
     keymap {
