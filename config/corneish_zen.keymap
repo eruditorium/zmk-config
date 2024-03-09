@@ -8,6 +8,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/keys.h>
 
 / {
     behaviors {
@@ -29,21 +30,9 @@
             #binding-cells = <2>;
             tapping-term-ms = <120>;
             flavor = "tap-preferred";
-            quick-tap-ms = <200>;
+            quick-tap-ms = <170>;
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
-        };
-
-        shift_hrm: shift_hrm {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SHIFT_HRM";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <120>;
-            quick-tap-ms = <200>;
-            require-prior-idle-ms = <125>;
-            flavor = "balanced";
         };
     };
 
@@ -100,19 +89,14 @@
             key-positions = <19 31>;
         };
 
-        esc {
-            bindings = <&kp ESCAPE>;
-            key-positions = <1 13>;
-        };
-
         Home {
             bindings = <&kp HOME>;
-            key-positions = <2 14>;
+            key-positions = <15 16>;
         };
 
         End {
             bindings = <&kp END>;
-            key-positions = <14 26>;
+            key-positions = <19 20>;
         };
     };
 
@@ -129,10 +113,10 @@
             //                    |BKSP |LWR* |ENT* |   | SPC | RSE* |DEL* |
 
             bindings = <
-&kp ESC    &kp Q        &kp W       &kp E       &kp R          &kp T              &kp Y      &kp U         &kp I           &kp O         &kp P            &kp BSPC
-&kp TAB    &kp A        &kp S       &kp D       &shm LSHIFT F  &kp G              &kp H      &shm RSHFT J  &kp K           &kp L         &kp SEMI         &kp SQT
-&kp LCTRL  &hm LCTRL Z  &hm LWIN X  &hm LALT C  &kp V          &kp B              &kp N      &kp M         &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
-                                    &kp BSPC    &lt 1 ESC      &shm LSHIFT RET    &kp SPACE  &lt 2 TAB     &hm RALT DEL
+&kp ESC    &kp Q        &kp W       &kp E       &kp R          &kp T         &kp Y      &kp U         &kp I           &kp O         &kp P            &kp BSPC
+&kp TAB    &kp A        &kp S       &kp D       &shm LSHIFT F  &kp G         &kp H      &shm RSHFT J  &kp K           &kp L         &kp SEMI         &kp SQT
+&kp LCTRL  &hm LCTRL Z  &hm LWIN X  &hm LALT C  &kp V          &kp B         &kp N      &kp M         &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
+                                    &kp BSPC    &lt 1 ESC      &kt RETURN    &kp SPACE  &lt 2 TAB     &hm RALT DEL
             >;
         };
 
