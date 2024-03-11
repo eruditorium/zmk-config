@@ -40,12 +40,12 @@
 
         Minus {
             bindings = <&kp MINUS>;
-            key-positions = <29 17>;
+            key-positions = <16 15>;
         };
 
         Underscore {
             bindings = <&kp UNDERSCORE>;
-            key-positions = <30 18>;
+            key-positions = <19 20>;
         };
 
         LeftBrace {
@@ -80,22 +80,22 @@
 
         DoubleQuotes {
             bindings = <&kp DOUBLE_QUOTES>;
-            key-positions = <16 28>;
+            key-positions = <28 27>;
         };
 
         Quote {
             bindings = <&kp SINGLE_QUOTE>;
-            key-positions = <19 31>;
+            key-positions = <31 32>;
         };
 
         Home {
             bindings = <&kp HOME>;
-            key-positions = <15 16>;
+            key-positions = <13 14>;
         };
 
         End {
             bindings = <&kp END>;
-            key-positions = <19 20>;
+            key-positions = <21 22>;
         };
     };
 
