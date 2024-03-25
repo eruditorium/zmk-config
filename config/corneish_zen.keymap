@@ -161,9 +161,9 @@
             //                                      `--------------------------'  `--------------------------'
 
             bindings = <
-&kp GRAVE  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET  &kp RA(Y)       &kp AMPS    &kp RA(P)   &kp RA(LS(COMMA))  &kp DEL
+&kp GRAVE  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET  &kp RA(Y)       &kp AMPS    &kp RA(P)   &kp RA(LS(COMMA))  &caps_word
 &trans     &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp MINUS    &kp BSLH   &kp RA(LS(N5))  &kp RA(N5)  &none       &kp RA(M)          &none
-&trans     &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &none        &kp PIPE   &none           &kp RA(N2)  &kp RA(N3)  &none              &trans
+&trans     &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &none        &kp PIPE   &kp LC(LS(M))   &kp RA(N2)  &kp RA(N3)  &none              &trans
                                     &trans         &mo 3          &kp MINUS    &kp MINUS  &trans          &trans
             >;
         };
