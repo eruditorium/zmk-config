@@ -88,16 +88,6 @@
             key-positions = <31 32>;
         };
 
-        Home {
-            bindings = <&kp HOME>;
-            key-positions = <13 14>;
-        };
-
-        End {
-            bindings = <&kp END>;
-            key-positions = <21 22>;
-        };
-
         equal {
             bindings = <&kp KP_EQUAL>;
             key-positions = <22 23>;
