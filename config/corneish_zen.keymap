@@ -127,6 +127,26 @@
             bindings = <&selectword>;
             key-positions = <40 41>;
         };
+
+        ae {
+            bindings = <&kp RA(Q)>;
+            key-positions = <13 14>;
+        };
+
+        ue {
+            bindings = <&kp RA(Y)>;
+            key-positions = <7 8>;
+        };
+
+        oe {
+            bindings = <&kp RA(P)>;
+            key-positions = <9 10>;
+        };
+
+        ss {
+            bindings = <&kp RA(S)>;
+            key-positions = <14 15>;
+        };
     };
 
     keymap {
@@ -164,10 +184,10 @@
             //                                      `--------------------------'  `--------------------------'
 
             bindings = <
-&trans  &kp CAPSLOCK    &kp HOME  &kp UP     &kp PG_UP      &kp LBRC     &kp RBRC   &kp N7  &kp N8  &kp N9  &kp PLUS      &kp LC(BSPC)
-&trans  &kp KP_NUMLOCK  &kp LEFT  &kp DOWN   &kp RIGHT      &kp LBKT     &kp RBKT   &kp N4  &kp N5  &kp N6  &kp MINUS     &kp EQUAL
-&trans  &kp LS(F10)     &kp END   &kp LC(S)  &kp PAGE_DOWN  &kp LPAR     &kp RPAR   &kp N1  &kp N2  &kp N3  &kp ASTERISK  &trans
-                                  &trans     &trans         &kp UNDER    &kp UNDER  &mo 3   &kp N0
+&trans  &kp CAPSLOCK    &kp HOME  &kp UP     &kp PG_UP      &kp LBRC    &kp RBRC  &kp N7  &kp N8  &kp N9  &kp PLUS      &kp LC(BSPC)
+&trans  &kp KP_NUMLOCK  &kp LEFT  &kp DOWN   &kp RIGHT      &kp LBKT    &kp RBKT  &kp N4  &kp N5  &kp N6  &kp MINUS     &kp EQUAL
+&trans  &kp LS(F10)     &kp END   &kp LC(S)  &kp PAGE_DOWN  &kp LPAR    &kp RPAR  &kp N1  &kp N2  &kp N3  &kp ASTERISK  &trans
+                                  &trans     &trans         &trans      &trans    &mo 3   &kp N0
             >;
         };
 
@@ -186,10 +206,10 @@
             //                                      `--------------------------'  `--------------------------'
 
             bindings = <
-&kp GRAVE  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT    &kp CARET  &kp RA(Y)       &kp AMPS    &kp RA(P)   &kp RA(LS(COMMA))  &caps_word
-&trans     &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp MINUS    &kp BSLH   &kp RA(LS(N5))  &kp RA(N5)  &none       &kp RA(M)          &none
-&trans     &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &none        &kp PIPE   &kp LC(LS(M))   &kp RA(N2)  &kp RA(N3)  &none              &trans
-                                    &trans         &mo 3          &kp MINUS    &kp MINUS  &trans          &trans
+&kp GRAVE  &kp EXCL     &kp AT      &kp HASH       &kp DLLR       &kp PRCNT                &kp CARET  &kp RA(Y)       &kp AMPS      &kp RA(P)       &kp RA(LS(COMMA))  &caps_word
+&trans     &kp RA(Q)    &kp RA(S)   &kp RA(F)      &kp RA(G)      &kp TILDE                &kp BSLH   &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW    &none
+&trans     &kp LS(F10)  &kp LS(F6)  &kp LA(LC(L))  &kp LC(LS(V))  &kp RA(RS(SEMICOLON))    &kp PIPE   &kp LC(LS(M))   &kp RA(N2)    &kp RA(N3)      &kp RA(NUMBER_5)   &trans
+                                    &trans         &mo 3          &trans                   &trans     &trans          &trans
             >;
         };
 
@@ -216,20 +236,21 @@
 };
 
 /*****************************************************************************/
-
-                                /* Macros */
-
+/* Macros */
 /*****************************************************************************/
-/ source: https://my.glove80.com/#/layout/user/ef36adb1-ee27-4127-a35e-1a8904b8fd70
 
-macros {  // Begin macros block
+/
 
-/* Enables easily defining instant key press macros */
-#define FAST_MACRO(NAME, BINDINGS) \
-    ZMK_MACRO(NAME, \
-        tap-ms = <0>; \
-        wait-ms = <0>; \
-        bindings = <BINDINGS>; \
+source: https: macros {
+    /* Enables easily defining instant key press macros */
+
+    #define FAST_MACRO(NAME, BINDINGS) \
+    ZMK_MACRO(NAME,
+
+    tap-ms = <0>;
+    wait-ms = <0>;
+    bindings = <BINDINGS>;
+
     )
 
 /* Enables easily defining selection and selection continuation macros */
@@ -237,8 +258,8 @@ macros {  // Begin macros block
     FAST_MACRO(NAME, \
         &macro_tap SETUP_KEYS \
         &macro_press SELECTION_KEY \
-        &macro_pause_for_release /* Hold for repeating selection */ \
-        &macro_release SELECTION_KEY \
+        &macro_pause_for_release /* Hold for repeating selection */
+    &macro_release SELECTION_KEY \
         &macro_tap &sl_continue_selection CONTINUE_LAYER \
     )
 #define CONTINUE_SELECTION(NAME, CONTINUE_LAYER) \
@@ -249,11 +270,13 @@ macros {  // Begin macros block
         &macro_tap &sl_continue_selection CONTINUE_LAYER \
     )
 
-/* End sentence macro for triple function left Shift above */
-FAST_MACRO(end_sentence, &macro_tap &kp DOT &kp SPACE &sk LSHFT)
+    /* End sentence macro for triple function left Shift above */
 
-/* Word and line selection macros for Mac */
-SELECT(sel_wd_fwd_mac,  \
+    FAST_MACRO(end_sentence, &macro_tap &kp DOT &kp SPACE &sk LSHFT)
+
+    /* Word and line selection macros for Mac */
+
+    SELECT(sel_wd_fwd_mac,  \
     &kp LA(RIGHT) &kp LA(LEFT), &kp LS(LA(RIGHT)), SEL_WD_FWD_SL)
 SELECT(sel_wd_bwd_mac, \
     &kp LA(LEFT) &kp LA(RIGHT), &kp LS(LA(LEFT)), SEL_WD_BWD_SL)
@@ -262,8 +285,9 @@ SELECT(sel_ln_fwd_mac, \
 SELECT(sel_ln_bwd_mac, \
     &kp LG(LEFT) &kp LG(LEFT) &kp DOWN, &kp LS(UP), SEL_LN_BWD_SL)
 
-/* Word and line selection macros for PC */
-SELECT(sel_wd_fwd_pc, \
+    /* Word and line selection macros for PC */
+
+    SELECT(sel_wd_fwd_pc, \
     &kp LC(RIGHT) &kp LC(LEFT), &kp LS(LC(RIGHT)), SEL_WD_FWD_SL)
 SELECT(sel_wd_bwd_pc, \
     &kp LC(LEFT) &kp LC(RIGHT), &kp LS(LC(LEFT)), SEL_WD_BWD_SL)
@@ -272,51 +296,53 @@ SELECT(sel_ln_fwd_pc, \
 SELECT(sel_ln_bwd_pc, \
     &kp HOME &kp HOME &kp DOWN, &kp LS(UP), SEL_LN_BWD_SL)
 
-/* Selection continuation macros */
-CONTINUE_SELECTION(sel_wd_fwd_cont, SEL_WD_FWD_SL)
+    /* Selection continuation macros */
+
+    CONTINUE_SELECTION(sel_wd_fwd_cont, SEL_WD_FWD_SL)
 CONTINUE_SELECTION(sel_wd_bwd_cont, SEL_WD_BWD_SL)
 CONTINUE_SELECTION(sel_ln_fwd_cont, SEL_LN_FWD_SL)
 CONTINUE_SELECTION(sel_ln_bwd_cont, SEL_LN_BWD_SL)
-
 };  // End macros block
-
+/*****************************************************************************/
+/* Layer Conditions */
 /*****************************************************************************/
 
-                                /* Layer Conditions */
-
-/*****************************************************************************/
-
-conditional_layers {  // Begin conditional layers block
+conditional_layers {
     compatible = "zmk,conditional-layers";
 
-/* Helper for defining conditional layers */
-#define LAYER_CONDITION(NAME, IF, THEN) \
-    NAME { \
-        if-layers = <IF>; \
-        then-layer = <THEN>; \
+    /* Helper for defining conditional layers */
+
+    #define LAYER_CONDITION(NAME, IF, THEN)
+
+    NAME {
+        if-layers = <IF>;
+        then-layer = <THEN>;
     };
 
-/* Layer lock feature for Editing layer */
-LAYER_CONDITION(editing_mo, EDITING_MO, EDITING)
+    /* Layer lock feature for Editing layer */
+
+    LAYER_CONDITION(editing_mo, EDITING_MO, EDITING)
 LAYER_CONDITION(editing_tog, EDITING_TOG, EDITING)
 LAYER_CONDITION(editing_tog_static_thumbs, EDITING_TOG, STATIC_THUMBS)
 
-/* Layer lock feature for Numbers layer */
-LAYER_CONDITION(numbers_mo, NUMBERS_MO, NUMBERS)
+    /* Layer lock feature for Numbers layer */
+
+    LAYER_CONDITION(numbers_mo, NUMBERS_MO, NUMBERS)
 LAYER_CONDITION(numbers_tog, NUMBERS_TOG, NUMBERS)
 LAYER_CONDITION(numbers_tog_static_thumbs, NUMBERS_TOG, STATIC_THUMBS)
 
-/* Support for toggling Mac/PC mode */
-LAYER_CONDITION(editing_pc, PC EDITING, EDITING_PC)
+    /* Support for toggling Mac/PC mode */
+
+    LAYER_CONDITION(editing_pc, PC EDITING, EDITING_PC)
 LAYER_CONDITION(numbers_pc, PC NUMBERS, NUMBERS_PC)
 LAYER_CONDITION(media_pc, PC MEDIA, MEDIA_PC)
 LAYER_CONDITION(function_pc, PC FUNCTION, FUNCTION_PC)
 
-/* Lock selection continuation to Editing layer */
-LAYER_CONDITION(sel_wd_fwd, EDITING SEL_WD_FWD_SL, SEL_WD_FWD_CONT)
+    /* Lock selection continuation to Editing layer */
+
+    LAYER_CONDITION(sel_wd_fwd, EDITING SEL_WD_FWD_SL, SEL_WD_FWD_CONT)
 LAYER_CONDITION(sel_wd_bwd, EDITING SEL_WD_BWD_SL, SEL_WD_BWD_CONT)
 LAYER_CONDITION(sel_ln_fwd, EDITING SEL_LN_FWD_SL, SEL_LN_FWD_CONT)
 LAYER_CONDITION(sel_ln_bwd, EDITING SEL_LN_BWD_SL, SEL_LN_BWD_CONT)
-
 };  // End conditional layers block
 };
