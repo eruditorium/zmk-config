@@ -233,7 +233,7 @@
             >;
         };
     };
-};
+
 
 macros {
     selectline: selectline {
@@ -250,4 +250,4 @@ macros {
         label = "SELECTWORD";
     };
 };
-
+};
