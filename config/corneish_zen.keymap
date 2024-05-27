@@ -147,6 +147,11 @@
             bindings = <&kp RA(S)>;
             key-positions = <14 15>;
         };
+
+        capsword {
+            bindings = <&caps_word>;
+            key-positions = <16 19>;
+        };
     };
 
     keymap {
@@ -234,20 +239,19 @@
         };
     };
 
+    macros {
+        selectline: selectline {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
+            label = "SELECTLINE";
+        };
 
-macros {
-    selectline: selectline {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp HOME &kp LS(END)>;
-        label = "SELECTLINE";
+        selectword: selectword {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LS(LC(RIGHT))>;
+            label = "SELECTWORD";
+        };
     };
-
-    selectword: selectword {
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings = <&kp LC(RIGHT) &kp LC(LEFT) &kp LS(LC(RIGHT))>;
-        label = "SELECTWORD";
-    };
-};
 };
