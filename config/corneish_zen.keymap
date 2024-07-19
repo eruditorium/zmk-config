@@ -274,11 +274,13 @@
         bindings = <&select_word_right>, <&select_word_left>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+
     ZMK_MACRO(select_word_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
+        wait-ms = 1;
+        tap-ms = 1;
         bindings = <&kp _W(RIGHT) &kp _W(LEFT) &kp _W(LS(RIGHT))>;
     )
+
     ZMK_MACRO(select_word_left,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
