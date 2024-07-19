@@ -10,6 +10,8 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define SELECT_WORD_DELAY 1
+#define _HOME LC(LEFT)
+#define _END LC(RIGHT)
 
 / {
     behaviors {
