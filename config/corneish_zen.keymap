@@ -33,8 +33,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             flavor = "tap-preferred";
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <125>;
+            quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
         };
     };
@@ -367,6 +366,17 @@
             bindings = <&extend_line_right>, <&extend_line_left>;
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        new_behavior: new_behavior {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+
+            label = "NEW_BEHAVIOR";
         };
 
         ZMK_MACRO(
