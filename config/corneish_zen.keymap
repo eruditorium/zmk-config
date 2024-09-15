@@ -21,9 +21,8 @@
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            flavor = "tap-preferred";
-            quick-tap-ms = <200>;
+            tapping-term-ms = <150>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -157,7 +156,7 @@
 &kp ESC    &kp Q        &kp W       &kp E                &kp R              &kp T         &kp Y      &kp U               &kp I           &kp O         &kp P            &kp BSPC
 &kp TAB    &kp A        &kp S       &kp D                &shm LEFT_SHIFT F  &kp G         &kp H      &shm RIGHT_SHIFT J  &kp K           &kp L         &kp SEMI         &kp SQT
 &kp LCTRL  &hm LCTRL Z  &hm LWIN X  &hm LALT C           &kp V              &kp B         &kp N      &kp M               &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
-                                    &mt RCTRL BACKSPACE  &lt 1 ESC          &kp RETURN    &kp SPACE  &lt 2 TAB           &hm RALT DEL
+                                    &hm RCTRL BACKSPACE  &lt 1 ESC          &kp RETURN    &kp SPACE  &lt 2 TAB           &hm RSHFT DEL
             >;
         };
 
@@ -382,60 +381,78 @@
 
         // special characters
         // three dots
+
         three_dots: three_dots {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N3>
-                , <&macro_release &kp LALT>
-                ;
-        }
-        // en-dash
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N3>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            // en-dash
+        };
+
         en_dash: en_dash {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>
-                , <&macro_release &kp LALT>
-                ;
-        }
-        // em-dash
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            // em-dash
+        };
+
         em_dash: em_dash {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1>
-                , <&macro_release &kp LALT>
-                ;
-        }
-        // Double Angle Quotation Left
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            // Double Angle Quotation Left
+        };
+
         double_angle_quotation_left: double_angle_quotation_left {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N1>
-                , <&macro_release &kp LALT>
-                ;
-        }
-        // Double Angle Quotation Right
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N1>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            // Double Angle Quotation Right
+        };
+
         double_angle_quotation_right: double_angle_quotation_right {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N8 &kp KP_N7>
-                , <&macro_release &kp LALT>
-                ;
-        }
-
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp KP_N0 &kp KP_N1 &kp KP_N8 &kp KP_N7>,
+                <&macro_release>,
+                <&kp LALT>;
+        };
     };
 };
