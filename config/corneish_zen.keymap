@@ -294,20 +294,16 @@
         };
 
         ZMK_MACRO(
-
         extend_word_right,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LC(LS(RIGHT))>;
-
         )
         ZMK_MACRO(
-
         extend_word_left,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LC(LS(LEFT))>;
-
         )
 
         //
@@ -318,25 +314,21 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&select_line_right>, <&select_line_left>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         ZMK_MACRO(
-
-        select_line_right,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _HOME &kp LS(_END)>;
-
+            select_line_right,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _HOME &kp LS(_END)>;
         )
+
         ZMK_MACRO(
-
-        select_line_left,
-        wait-ms = <SELECT_WORD_DELAY>;
-        tap-ms = <SELECT_WORD_DELAY>;
-        bindings = <&kp _END &kp LS(_HOME)>;
-
+            select_line_left,
+            wait-ms = <SELECT_WORD_DELAY>;
+            tap-ms = <SELECT_WORD_DELAY>;
+            bindings = <&kp _END &kp LS(_HOME)>;
         )
 
         //
@@ -347,7 +339,6 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&extend_line_right>, <&extend_line_left>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -358,7 +349,6 @@
             flavor = "tap-preferred";
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-
             label = "NEW_BEHAVIOR";
         };
 
@@ -368,15 +358,12 @@
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LS(DOWN) &kp LS(_END)>;
-
         )
         ZMK_MACRO(
-
         extend_line_left,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LS(UP) &kp LS(_HOME)>;
-
         )
 
         // special characters
@@ -394,7 +381,6 @@
                 <&macro_release>,
                 <&kp LALT>;
             label = "three_dots";
-
         };
 
         // en-dash
@@ -409,8 +395,7 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>,
                 <&macro_release>,
                 <&kp LALT>;
-            label="en_dash";
-            
+            label="en_dash";    
         };
 
         // em-dash
@@ -440,9 +425,7 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N1>,
                 <&macro_release>,
                 <&kp LALT>;
-            label="double_angle_quotation_left¨;
-
-            
+            label="double_angle_quotation_left¨;    
         };
 
         // Double Angle Quotation Right
