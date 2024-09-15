@@ -393,10 +393,11 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N3>,
                 <&macro_release>,
                 <&kp LALT>;
+            label = "three_dots";
 
-            // en-dash
         };
 
+        // en-dash
         en_dash: en_dash {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
@@ -408,10 +409,11 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>,
                 <&macro_release>,
                 <&kp LALT>;
-
-            // em-dash
+            label="en_dash";
+            
         };
 
+        // em-dash
         em_dash: em_dash {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
@@ -423,10 +425,10 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1>,
                 <&macro_release>,
                 <&kp LALT>;
-
-            // Double Angle Quotation Left
+            label="em-dash";
         };
 
+        // Double Angle Quotation Left
         double_angle_quotation_left: double_angle_quotation_left {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
@@ -438,10 +440,12 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N1>,
                 <&macro_release>,
                 <&kp LALT>;
+            label="double_angle_quotation_left¨;
 
-            // Double Angle Quotation Right
+            
         };
 
+        // Double Angle Quotation Right
         double_angle_quotation_right: double_angle_quotation_right {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
@@ -453,6 +457,7 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N8 &kp KP_N7>,
                 <&macro_release>,
                 <&kp LALT>;
+            label="double_angle_quotation_right¨;
         };
     };
 };
