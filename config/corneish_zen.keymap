@@ -153,10 +153,10 @@
             //                    |BKSP |LWR* |ENT* |   | SPC | RSE* |DEL* |
 
             bindings = <
-&kp ESC    &kp Q        &kp W       &kp E                &kp R              &kp T         &kp Y      &kp U               &kp I           &kp O         &kp P            &kp BSPC
-&kp TAB    &kp A        &kp S       &kp D                &shm LEFT_SHIFT F  &kp G         &kp H      &shm RIGHT_SHIFT J  &kp K           &kp L         &kp SEMI         &kp SQT
-&kp LCTRL  &hm LCTRL Z  &hm LWIN X  &hm LALT C           &kp V              &kp B         &kp N      &kp M               &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
-                                    &hm RCTRL BACKSPACE  &lt 1 ESC          &kp RETURN    &kp SPACE  &lt 2 TAB           &hm RSHFT DEL
+&kp ESC    &kp Q  &kp W       &kp E                     &kp R      &kp T         &kp Y      &kp U      &kp I           &kp O         &kp P            &kp BSPC
+&kp TAB    &kp A  &kp S       &kp D                     &kp F      &kp G         &kp H      &kp J      &kp K           &kp L         &kp SEMI         &kp SQT
+&kp LCTRL  &kp Z  &hm LWIN X  &hm LALT C                &kp V      &kp B         &kp N      &kp M      &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
+                              &hm LEFT_SHIFT BACKSPACE  &lt 1 ESC  &kp RETURN    &kp SPACE  &lt 2 TAB  &hm RCTRL DEL
             >;
         };
 
@@ -294,16 +294,20 @@
         };
 
         ZMK_MACRO(
+
         extend_word_right,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LC(LS(RIGHT))>;
+
         )
         ZMK_MACRO(
+
         extend_word_left,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LC(LS(LEFT))>;
+
         )
 
         //
@@ -314,21 +318,26 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&select_line_right>, <&select_line_left>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
         ZMK_MACRO(
-            select_line_right,
-            wait-ms = <SELECT_WORD_DELAY>;
-            tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <&kp _HOME &kp LS(_END)>;
+
+        select_line_right,
+        wait-ms = <SELECT_WORD_DELAY>;
+        tap-ms = <SELECT_WORD_DELAY>;
+        bindings = <&kp _HOME &kp LS(_END)>;
+
         )
 
         ZMK_MACRO(
-            select_line_left,
-            wait-ms = <SELECT_WORD_DELAY>;
-            tap-ms = <SELECT_WORD_DELAY>;
-            bindings = <&kp _END &kp LS(_HOME)>;
+
+        select_line_left,
+        wait-ms = <SELECT_WORD_DELAY>;
+        tap-ms = <SELECT_WORD_DELAY>;
+        bindings = <&kp _END &kp LS(_HOME)>;
+
         )
 
         //
@@ -339,6 +348,7 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&extend_line_right>, <&extend_line_left>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -349,6 +359,7 @@
             flavor = "tap-preferred";
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
+
             label = "NEW_BEHAVIOR";
         };
 
@@ -358,13 +369,15 @@
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LS(DOWN) &kp LS(_END)>;
+
         )
         ZMK_MACRO(
+
         extend_line_left,
         wait-ms = <SELECT_WORD_DELAY>;
         tap-ms = <SELECT_WORD_DELAY>;
         bindings = <&kp LS(UP) &kp LS(_HOME)>;
-        )
 
+        )
     };
 };
