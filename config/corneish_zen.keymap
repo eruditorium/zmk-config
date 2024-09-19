@@ -380,7 +380,6 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N3 &kp KP_N3>,
                 <&macro_release>,
                 <&kp LALT>;
-            label = "three_dots";
         };
 
         // en-dash
@@ -394,8 +393,7 @@
                 <&macro_tap>,
                 <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N0>,
                 <&macro_release>,
-                <&kp LALT>;
-            label="en_dash";    
+                <&kp LALT>;   
         };
 
         // em-dash
@@ -410,7 +408,6 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N5 &kp KP_N1>,
                 <&macro_release>,
                 <&kp LALT>;
-            label="em-dash";
         };
 
         // Double Angle Quotation Left
@@ -424,8 +421,7 @@
                 <&macro_tap>,
                 <&kp KP_N0 &kp KP_N1 &kp KP_N7 &kp KP_N1>,
                 <&macro_release>,
-                <&kp LALT>;
-            label="double_angle_quotation_left¨;    
+                <&kp LALT>;   
         };
 
         // Double Angle Quotation Right
@@ -440,7 +436,6 @@
                 <&kp KP_N0 &kp KP_N1 &kp KP_N8 &kp KP_N7>,
                 <&macro_release>,
                 <&kp LALT>;
-            label="double_angle_quotation_right¨;
         };
     };
 };
