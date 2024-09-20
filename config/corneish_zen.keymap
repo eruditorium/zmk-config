@@ -411,7 +411,7 @@
         };
 
         // Double Angle Quotation Left
-        double_angle_quotation_left: double_angle_quotation_left {
+        double_left: double_left {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
@@ -425,7 +425,7 @@
         };
 
         // Double Angle Quotation Right
-        double_angle_quotation_right: double_angle_quotation_right {
+        double_right: double_right {
             compatible = "zmk,behavior-macro";
             wait-ms = <40>;
             tap-ms = <40>;
