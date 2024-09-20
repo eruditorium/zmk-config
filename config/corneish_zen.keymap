@@ -29,10 +29,12 @@
         shm: shift_hr_mod {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <170>;
+            flavor = "balanced";
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
+
+            label = "Shift HR Mod";
         };
     };
 
@@ -153,10 +155,10 @@
             //                    |BKSP |LWR* |ENT* |   | SPC | RSE* |DEL* |
 
             bindings = <
-&kp ESC    &kp Q  &kp W       &kp E                     &kp R      &kp T         &kp Y      &kp U      &kp I           &kp O         &kp P            &kp BSPC
-&kp TAB    &kp A  &kp S       &kp D                     &kp F      &kp G         &kp H      &kp J      &kp K           &kp L         &kp SEMI         &kp SQT
-&kp LCTRL  &kp Z  &hm LWIN X  &hm LALT C                &kp V      &kp B         &kp N      &kp M      &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
-                              &hm LEFT_SHIFT BACKSPACE  &lt 1 ESC  &kp RETURN    &kp SPACE  &lt 2 TAB  &hm RCTRL DEL
+&kp ESC    &kp Q  &kp W       &kp E                     &kp R          &kp T         &kp Y      &kp U         &kp I           &kp O         &kp P            &kp BSPC
+&kp TAB    &kp A  &kp S       &kp D                     &shm LSHIFT F  &kp G         &kp H      &shm RSHFT J  &kp K           &kp L         &kp SEMI         &kp SQT
+&kp LCTRL  &kp Z  &hm LWIN X  &hm LALT C                &kp V          &kp B         &kp N      &kp M         &hm RALT COMMA  &hm RGUI DOT  &hm RCTRL SLASH  &kp RSHFT
+                              &hm LEFT_SHIFT BACKSPACE  &lt 1 ESC      &kp RETURN    &kp SPACE  &lt 2 TAB     &hm RCTRL DEL
             >;
         };
 
