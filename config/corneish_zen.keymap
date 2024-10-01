@@ -119,26 +119,6 @@
             key-positions = <40 41>;
         };
 
-        ae {
-            bindings = <&kp RA(Q)>;
-            key-positions = <13 14>;
-        };
-
-        ue {
-            bindings = <&kp RA(Y)>;
-            key-positions = <7 8>;
-        };
-
-        oe {
-            bindings = <&kp RA(P)>;
-            key-positions = <9 10>;
-        };
-
-        ss {
-            bindings = <&kp RA(S)>;
-            key-positions = <14 15>;
-        };
-
         capsword {
             bindings = <&caps_word>;
             key-positions = <16 19>;
