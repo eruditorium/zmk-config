@@ -24,6 +24,8 @@
             tapping-term-ms = <250>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+
+            quick-tap-ms = <200>;
         };
 
         shm: shift_hr_mod {
